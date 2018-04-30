@@ -1,0 +1,115 @@
+<!-- .service start -->
+<div class="card rounded border-light service mb-4">
+  <div class="card-body">
+    <!-- .card-title start -->
+    <header class="card-title">
+      <h2 class="section-title">{{ __('services') }}</h2>
+    </header>
+    <!-- end .card-title -->
+
+    <!-- .card-text start -->
+    <article class="card-text">
+      <div class="row">
+        {% for item in site.data.services %}
+          <section class="col-md-3 col-6 text-center">
+            <a href="{{ item.url }}">
+              <img class="rounded-circle" src="{{ item.icon }}" alt="{{ item.name }}" title="{{ item.name }}">
+            </a>
+            <h4>{{ item.name }}&nbsp;<a href="{{ item.url }}"><i class="fa fa-hand-o-right"></i></a></h4>
+            <h6>{{ item.desc }}</h6>
+          </section>
+        {% endfor %}
+      </div>
+    </article>
+    <!-- end .card-text -->
+  </div>
+</div>
+<!-- end .service -->
+
+<!-- .news start -->
+<div class="news">
+  <div class="row">
+    <!-- left-panel start -->
+    <div class="col-md-6 mb-4">
+      <div class="card rounded border-light">
+        <div class="card-body">
+          <!-- .card-title start -->
+          <header class="card-title">
+            <h2 class="section-title">{{ __('activities_records') }}</h2>
+          </header>
+          <!-- end .card-title -->
+
+          <!-- .card-text start -->
+          <div class="card-text">
+            {% set activities = site.categories.findOne({ name: 'activity' }).posts %}
+            {% if activities and activities.length %}
+              <!-- .list-group start -->
+              <ul class="list-group">
+                {% for activity in activities.posts.sort('date', -1).limit(5).toArray() %}
+                  <a href="{{ url_for(activity.path) }}" class="list-group-item list-group-item-action flex-column align-items-start text-center border-0">
+                    <h4 class="mb-1">{{ activity.title }}</h4>
+                    <small class="post-meta">
+                      <span class="text-nowrap"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ date(activity.date, 'DD MMM YYYY') }}</span>
+                      <span class="text-nowrap"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ date(activity.date, 'hh:mm') }}</span>
+                    </small>
+                  </a>
+                {% endfor %}
+              </ul>
+              <!-- end .list-group -->
+              {% if activities.posts.length > 5 %}
+                <a href="/events" class="card-link"><i class="fa fa-hand-o-right"></i>&nbsp;{{ __('more_activities') }}</a>
+              {% endif %}
+            {% else %}
+              <li class="list-group-item">{{ __('no_activities') }}</li>
+            {% endif %}
+          </div>
+          <!-- end .card-text -->
+        </div>
+      </div>
+    </div>
+    <!-- end left-panel -->
+
+    <!-- right-panel start -->
+    <div class="col-md-6 mb-4">
+      <div class="card rounded border-light">
+        <div class="card-body">
+          <!-- .card-title start -->
+          <header class="card-title">
+            <h2 class="section-title">{{ __('recent_news') }}</h2>
+          </header>
+          <!-- end .card-title -->
+
+          <!-- .card-text start -->
+          <div class="card-text">
+            {% set newslist = site.categories.findOne({ name: 'news' }).posts %}
+            {% if newslist and newslist.length %}
+              <!-- .list-group start -->
+              <ul class="list-group">
+                {% for news in newslist.sort('date', -1).limit(5).toArray() %}
+                  <a href="{{ url_for(news.path) }}" class="list-group-item list-group-item-action flex-column align-items-start text-center border-0">
+                    <h4 class="mb-1">{{ news.title }}</h4>
+                    <small class="post-meta">
+                      {% if news.tags and news.tags.length %}
+                        <span class="text-nowrap"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ news.tag }}</span>
+                      {% endif %}
+                      <span class="text-nowrap"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ date(news.date, 'DD MMM YYYY') }}</span>
+                    </small>
+                  </a>
+                {% endfor %}
+              </ul>
+              <!-- end .list-group -->
+              {% if newslist.length > 5 %}
+                <a href="/news" class="card-link"><i class="fa fa-hand-o-right"></i>&nbsp;{{ __('more_news') }}</a>
+              {% endif %}
+            {% else %}
+              <li class="list-group-item">{{ __('no_news') }}</li>
+            {% endif %}
+          </div>
+          <!-- end .card-text -->
+        </div>
+      </div>
+    </div>
+    <!-- end right-panel -->
+  </div>
+</div>
+<!-- end .news -->

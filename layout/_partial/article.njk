@@ -1,0 +1,28 @@
+<article class="card border-light mb-4">
+  <!-- .card-body start -->
+  <div class="card-body">
+    <!-- .card-title start -->
+    <div class="card-title post-title text-center">
+      <h1>{{ page.title }}</h1>
+    </div>
+    <!-- end .card-title -->
+
+    <!-- .card-text start -->
+    <div class="card-text">
+      <!-- .post-meta start -->
+      <div class="post-meta text-center text-muted">
+        {{ partial('post/date') | safe }}
+        {{ partial('post/tag') | safe }}
+      </div>
+      <!-- end .post-meta -->
+
+      <!-- .post-content start -->
+      <div class="post-content">
+        {{ page.content | safe }}
+      </div>
+      <!-- end .post-content -->
+    </div>
+    <!-- end .card-text -->
+  </div>
+  <!-- end .card-body -->
+</article>

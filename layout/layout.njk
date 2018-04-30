@@ -1,0 +1,44 @@
+{% set pageTitle = page.title %}
+
+{% if is_home() %}
+  {% set pageTitle = config.title %}
+{% elif is_post() %}
+  {% set pageTitle = pageTitle + ' - ' + config.title %}
+{% endif %}
+
+<!doctype html>
+<html lang="{{ config.language }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{{ pageTitle }}</title>
+
+    <!-- stylesheets here -->
+    {{ partial('_partial/head') | safe }}
+
+  </head>
+  <body>
+
+    <!-- #wp-header start -->
+    <header id="wp-header">
+      {{ partial('_partial/header') | safe }}
+    </header>
+    <!-- end #wp-header -->
+
+    <!-- #wp-body start -->
+    <main id="wp-body" class="container">
+      {{ body | safe }}
+    </main>
+    <!-- end #wp-body -->
+
+    <!-- #wp-footer start -->
+    <footer id="wp-footer">
+      {{ partial('_partial/footer') | safe }}
+    </footer>
+    <!-- end #wp-footer -->
+
+    <!-- scripts here -->
+    {{ partial('_partial/after-footer') | safe }}
+  </body>
+</html>
