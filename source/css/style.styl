@@ -1,0 +1,69 @@
+@import "_variables"
+
+.top-navbar
+  font-family "Orbitron", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "WenQuanYi Zen Hei", sans-serif
+
+.post-title,
+.post-meta,
+.post-content
+  font-family: "Noto Sans", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "WenQuanYi Zen Hei", sans-serif
+
+.navbar-brand img
+  height 32px
+
+.box-shadow
+  -webkit-box-shadow 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+  -moz-box-shadow 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+  box-shadow 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+
+.card
+  transition 0.2s all ease-in-out
+
+  &:hover
+    @extend .box-shadow
+
+.service img
+  margin .5rem
+  width 100px
+  height 100px
+
+@media (max-width: 383px)
+  .service h4
+    font-size 1.25rem
+
+  .news h4
+    font-size 1.25rem
+
+@media (min-width: 360px)
+  .service img
+    width 110px
+    height 110px
+
+@media (min-width: 384px)
+  .service img
+    width 120px
+    height 120px
+
+@media (min-width: 415px)
+  .service img
+    width 130px
+    height 130px
+
+@media (min-width: 576px)
+  .service img
+    width 140px
+    height 140px
+
+@media (min-width: 768px)
+  .service img
+    width 130px
+    height 130px
+
+@media (min-width: 992px)
+  .service img
+    width 140px
+    height 140px
+
+@import "_extends"
+@import "_partial/footer"
+@import "_partial/article"

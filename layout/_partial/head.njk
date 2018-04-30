@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% if theme.favicon %}
+  <link rel="icon" href="{{ theme.favicon }}" type="image/png">
+{% endif %}
+
+{{ css('css/style') | safe }}

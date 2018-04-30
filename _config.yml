@@ -1,0 +1,9 @@
+# 导航栏
+menu:
+  mirros: /mirros
+  forum: /forum
+  wiki: http://10.4.1.176/YUOL/about-us/wiki
+  git: http://10.4.1.176:8080/explore
+
+# Brand 图标
+favicon: /assets/images/brand.png
