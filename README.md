@@ -3,9 +3,9 @@
 [bootstrap-url]: https://getbootstrap.com/
 [yuol-osc]: https://YUOL-code.github.io/
 
-A hexo theme for Yangtze University open source community. Based on [Bootstrap v4.1](bootstrap-url).
+A hexo theme for Yangtze University open source community. Based on [Bootstrap v4.1][bootstrap-url].
 
-- [Preview](yuol-osc)
+- [Preview][yuol-osc]
 
 ## Installation
 
